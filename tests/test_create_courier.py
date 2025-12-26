@@ -17,6 +17,9 @@ class TestCourierCreation:
 
         assert response.status_code == HTTPStatus.CREATED
         assert response.json()['ok'] is True
+        
+        """Фикстура для удаления курьера после теста"""
+        CourierHelper.delete_courier(courier_creds) 
 
     @allure.title('Нельзя создать двух одинаковых курьеров')
     @allure.description('Попытка создать курьера с уже существующими данными возвращает ошибку конфликта.')
