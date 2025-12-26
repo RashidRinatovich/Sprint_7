@@ -15,10 +15,11 @@ def courier():
     with allure.step('Создать курьера'):
         response = CourierHelper.create_courier(courier_data)
 
-    yield courier_data
-
-    with allure.step('Удалить курьера после теста'):
-        CourierHelper.delete_courier(courier_data)
+@pytest.fixture()
+def delete_courier_after_test(courier_creds):
+     """Фикстура для удаления курьера после теста"""
+     yield courier_creds                             
+     CourierHelper.delete_courier(courier_creds)  
 
 
 @pytest.fixture
