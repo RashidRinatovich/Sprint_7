@@ -9,7 +9,7 @@ from data.order_test_data import STATUS_CREATED, FIELD_TRACK
 
 @pytest.fixture
 def courier():
-    """Фикстура для создания тестового курьера"""
+    """Фикстура для создания тестового курьера (для тестов регистрации курьера)"""
     with allure.step('Генерировать данные курьера'):
         courier_data = CourierGenerator.random_courier()
     with allure.step('Создать курьера'):
